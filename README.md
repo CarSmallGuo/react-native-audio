@@ -1,5 +1,7 @@
 Record audio in iOS or Android React Native apps.
 
+#
+
 ## BREAKING CHANGES
 
 For React Native >= 0.47.2, use v3.4.0 and up.
@@ -15,21 +17,21 @@ from the network, please submit a PR to that project or try `react-native-video`
 
 Install the npm package and link it to your project:
 
-```
+```xml
 npm install react-native-audio --save
 react-native link react-native-audio
 ```
 
 On *iOS* you need to add a usage description to `Info.plist`:
 
-```
+```xml
 <key>NSMicrophoneUsageDescription</key>
 <string>This sample uses the microphone to record your speech and convert it to text.</string>
 ```
 
 On *Android* you need to add a permission to `AndroidManifest.xml`:
 
-```
+```xml
 <uses-permission android:name="android.permission.RECORD_AUDIO" />
 ```
 
@@ -38,13 +40,15 @@ On *Android* you need to add a permission to `AndroidManifest.xml`:
 This is not necessary if you have used `react-native link`
 
 Edit `android/settings.gradle` to declare the project directory:
-```
+
+```java
 include ':react-native-audio'
 project(':react-native-audio').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-audio/android')
 ```
 
 Edit `android/app/build.gradle` to declare the project dependency:
-```
+
+```java
 dependencies {
   ...
   compile project(':react-native-audio')
@@ -73,7 +77,7 @@ public class MainApplication extends Application implements ReactApplication {
 
 In the `AudioExample` directory:
 
-```
+```sh
 npm install
 react-native run-ios
 react-native run-android
@@ -83,7 +87,7 @@ react-native run-android
 
 To record in AAC format, at 22050 KHz in low quality mono:
 
-```
+```js
 import {AudioRecorder, AudioUtils} from 'react-native-audio';
 let audioPath = AudioUtils.DocumentDirectoryPath + '/test.aac';
 
@@ -95,11 +99,11 @@ AudioRecorder.prepareRecordingAtPath(audioPath, {
 });
 ```
 
-`AudioQuality` is supported on iOS. `Low`, `Medium`, and 'High` will translate to `AVAudioQualityLow`, `AVAudioQualityMedium`, and `AVAudioQualityHigh` respectively.
+`AudioQuality` is supported on iOS. `Low`, `Medium`, and `High` will translate to `AVAudioQualityLow`, `AVAudioQualityMedium`, and `AVAudioQualityHigh` respectively.
 
 #### Cross-platform options
 
-```
+```js
 SampleRate: int
 Channels: int
 AudioQuality: string

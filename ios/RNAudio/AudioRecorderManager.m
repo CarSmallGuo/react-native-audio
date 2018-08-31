@@ -64,7 +64,7 @@ RCT_EXPORT_MODULE();
             float _currentPeakMetering = [_audioRecorder peakPowerForChannel:0];
             body[@"currentPeakMetering"] = @(_currentPeakMetering);
 
-            float volume = [_meterTableOC valueAt:_currentMetering];
+            float volume = [_meterTableOC valueAt:_currentMetering] * 32767;
             body[@"maxAmplitude"] = @(volume);
         }
         [self.bridge.eventDispatcher sendAppEventWithName:AudioRecorderEventProgress body:body];

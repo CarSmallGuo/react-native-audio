@@ -5,8 +5,10 @@
   "main": "index.js",
   "author": "Joshua Sierles <joshua@diluvia.net> (https://github.com/jsierles)",
   "files": [
-    "ios/AudioRecorderManager.m",
-    "ios/AudioRecorderManager.h",
+    "ios/RNAudio/AudioRecorderManager.h",
+    "ios/RNAudio/AudioRecorderManager.m",
+    "ios/RNAudio/MeterTableOC.h",
+    "ios/RNAudio/MeterTableOC.m",
     "ios/RNAudio.xcodeproj",
     "README.md",
     "LICENSE",
