@@ -1,6 +1,6 @@
 {
-  "name": "react-native-audio-fix",
-  "version": "5.0.5",
+  "name": "@erick.yim/react-native-audio",
+  "version": "5.0.6",
   "description": "React Native extension for recording audio",
   "main": "index.js",
   "author": "Joshua Sierles <joshua@diluvia.net> (https://github.com/jsierles)",
