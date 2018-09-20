@@ -1,14 +1,12 @@
 {
   "name": "@erick.yim/react-native-audio",
-  "version": "5.0.6",
+  "version": "5.0.7",
   "description": "React Native extension for recording audio",
   "main": "index.js",
   "author": "Joshua Sierles <joshua@diluvia.net> (https://github.com/jsierles)",
   "files": [
     "ios/RNAudio/AudioRecorderManager.h",
     "ios/RNAudio/AudioRecorderManager.m",
-    "ios/RNAudio/MeterTableOC.h",
-    "ios/RNAudio/MeterTableOC.m",
     "ios/RNAudio.xcodeproj",
     "README.md",
     "LICENSE",
