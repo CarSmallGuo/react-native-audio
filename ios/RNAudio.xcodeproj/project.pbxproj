@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		A7B29F6B2138CDFC00DD2036 /* AudioRecorderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A7B29F672138CDFB00DD2036 /* AudioRecorderManager.m */; };
-		A7B29F6C2138CDFC00DD2036 /* MeterTableOC.m in Sources */ = {isa = PBXBuildFile; fileRef = A7B29F692138CDFC00DD2036 /* MeterTableOC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,8 +25,6 @@
 /* Begin PBXFileReference section */
 		42F559BA1CFC90C400DC3F84 /* libRNAudio.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNAudio.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7B29F672138CDFB00DD2036 /* AudioRecorderManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioRecorderManager.m; sourceTree = "<group>"; };
-		A7B29F682138CDFB00DD2036 /* MeterTableOC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeterTableOC.h; sourceTree = "<group>"; };
-		A7B29F692138CDFC00DD2036 /* MeterTableOC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeterTableOC.m; sourceTree = "<group>"; };
 		A7B29F6A2138CDFC00DD2036 /* AudioRecorderManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioRecorderManager.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -63,8 +60,6 @@
 			children = (
 				A7B29F6A2138CDFC00DD2036 /* AudioRecorderManager.h */,
 				A7B29F672138CDFB00DD2036 /* AudioRecorderManager.m */,
-				A7B29F682138CDFB00DD2036 /* MeterTableOC.h */,
-				A7B29F692138CDFC00DD2036 /* MeterTableOC.m */,
 			);
 			path = RNAudio;
 			sourceTree = "<group>";
@@ -125,7 +120,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A7B29F6C2138CDFC00DD2036 /* MeterTableOC.m in Sources */,
 				A7B29F6B2138CDFC00DD2036 /* AudioRecorderManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

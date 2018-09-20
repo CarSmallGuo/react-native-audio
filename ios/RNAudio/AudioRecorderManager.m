@@ -7,7 +7,6 @@
 //
 
 #import "AudioRecorderManager.h"
-#import "MeterTableOC.h"
 #import <React/RCTConvert.h>
 #import <React/RCTBridge.h>
 #import <React/RCTUtils.h>
@@ -34,7 +33,6 @@ NSString *const AudioRecorderEventFinished = @"recordingFinished";
     BOOL _meteringEnabled;
     BOOL _measurementMode;
     BOOL _includeBase64;
-    MeterTableOC *_meterTableOC;
 }
 
 @synthesize bridge = _bridge;
@@ -48,10 +46,6 @@ RCT_EXPORT_MODULE();
         return;
     }
 
-    if (!_meterTableOC) {
-        _meterTableOC = [[MeterTableOC alloc] init];
-    }
-
     if (_prevProgressUpdateTime == nil ||
         ((_prevProgressUpdateTime.timeIntervalSinceNow * -1000.0) >= _progressUpdateInterval)) {
         NSMutableDictionary *body = [[NSMutableDictionary alloc] init];
@@ -63,9 +57,6 @@ RCT_EXPORT_MODULE();
 
             float _currentPeakMetering = [_audioRecorder peakPowerForChannel:0];
             body[@"currentPeakMetering"] = @(_currentPeakMetering);
-
-            float volume = [_meterTableOC valueAt:_currentMetering] * 32767;
-            body[@"maxAmplitude"] = @(volume);
         }
         [self.bridge.eventDispatcher sendAppEventWithName:AudioRecorderEventProgress body:body];
 
@@ -74,11 +65,14 @@ RCT_EXPORT_MODULE();
 }
 
 - (void)stopProgressTimer {
-    [_progressUpdateTimer invalidate];
+    if (_progressUpdateTimer) {
+        [_progressUpdateTimer invalidate];
+        _progressUpdateTimer = nil;
+    }
 }
 
 - (void)startProgressTimer {
-    _progressUpdateInterval = 250;
+    _progressUpdateInterval = 50;
     //_prevProgressUpdateTime = nil;
 
     [self stopProgressTimer];
@@ -198,7 +192,7 @@ RCT_EXPORT_METHOD(prepareRecordingAtPath:(NSString *)path sampleRate:(float)samp
         [_recordSession setCategory:AVAudioSessionCategoryRecord error:nil];
         [_recordSession setMode:AVAudioSessionModeMeasurement error:nil];
     }else{
-        [_recordSession setCategory:AVAudioSessionCategoryMultiRoute error:nil];
+        [_recordSession setCategory:AVAudioSessionCategoryPlayAndRecord error:nil];
     }
 
     _audioRecorder = [[AVAudioRecorder alloc]
